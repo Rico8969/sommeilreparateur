@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votre guide est en route ! - Sommeil R&eacute;parateur</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 100%;
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    /* Checkmark Animation */
+    .checkmark-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .checkmark-circle {
+      width: 80px;
+      height: 80px;
+      background-color: #27AE60;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: scaleIn 0.5s ease-out forwards;
+      box-shadow: 0 8px 20px rgba(39, 174, 96, 0.35);
+    }
+
+    @keyframes scaleIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      70% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .checkmark-circle svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Heading */
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #27AE60;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-size: 1rem;
+      color: #555555;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      font-weight: 400;
+    }
+
+    .subtitle strong {
+      color: #333333;
+      font-weight: 600;
+    }
+
+    /* Info Box */
+    .info-box {
+      background-color: #E8F8F5;
+      border-left: 4px solid #27AE60;
+      border-radius: 10px;
+      padding: 18px 20px;
+      text-align: left;
+      margin-bottom: 28px;
+    }
+
+    .info-box h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1E8449;
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .info-box h3 .icon {
+      font-size: 1.1rem;
+    }
+
+    .info-box p {
+      font-size: 0.875rem;
+      color: #444444;
+      line-height: 1.6;
+    }
+
+    /* Download Button */
+    .btn-download {
+      display: inline-block;
+      background-color: #27AE60;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.4;
+      transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+      box-shadow: 0 6px 18px rgba(39, 174, 96, 0.35);
+      margin-bottom: 34px;
+    }
+
+    .btn-download:hover {
+      background-color: #219150;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(39, 174, 96, 0.45);
+    }
+
+    .btn-download:active {
+      transform: translateY(0);
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid #E8E8E8;
+      margin: 0 0 32px 0;
+    }
+
+    /* Upsell Section */
+    .upsell-section {
+      margin-bottom: 34px;
+    }
+
+    .upsell-section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #333333;
+      margin-bottom: 12px;
+    }
+
+    .upsell-section p {
+      font-size: 0.9rem;
+      color: #666666;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .price-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .price-old {
+      font-size: 1rem;
+      color: #999999;
+      text-decoration: line-through;
+      font-weight: 400;
+    }
+
+    .price-new {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #764ba2;
+    }
+
+    .price-badge {
+      background: #FFF3CD;
+      color: #856404;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid #FFEAA7;
+    }
+
+    .btn-upsell {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+      box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
+      letter-spacing: 0.3px;
+    }
+
+    .btn-upsell:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(118, 75, 162, 0.5);
+    }
+
+    .btn-upsell:active {
+      transform: translateY(0);
+    }
+
+    /* Footer Link */
+    .footer-link {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.82rem;
+      color: #aaaaaa;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: #764ba2;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 36px 24px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .upsell-section h2 {
+        font-size: 1.15rem;
+      }
+
+      .btn-download,
+      .btn-upsell {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+      }
+
+      .price-block {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Checkmark -->
+    <div class="checkmark-wrapper">
+      <div class="checkmark-circle">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="14,27 22,35 38,17" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Heading -->
+    <h1>Votre guide est en route&nbsp;!</h1>
+
+    <!-- Subtitle -->
+    <p class="subtitle">
+      Consultez votre bo&icirc;te mail pour t&eacute;l&eacute;charger votre guide gratuit
+      <strong>&laquo;&nbsp;Comment se rendormir en moins de 15 minutes&nbsp;&raquo;</strong>.
+    </p>
+
+    <!-- Info Box -->
+    <div class="info-box">
+      <h3><span class="icon">&#128276;</span> V&eacute;rifiez vos spams</h3>
+      <p>
+        Si vous ne voyez pas l&rsquo;email dans les prochaines minutes, pensez &agrave; v&eacute;rifier votre dossier
+        <strong>Spams</strong> ou <strong>Promotions</strong>. Il arrive que les messageries redirigent
+        automatiquement nos emails. Ajoutez notre adresse &agrave; vos contacts pour ne plus manquer
+        nos prochains conseils.
+      </p>
+    </div>
+
+    <!-- Direct Download Button -->
+    <a
+      href="https://drive.google.com/file/d/1s_XCouGrITOMWjahcrkhrUdc_3tKTMV1/view?usp=drive_link"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-download"
+    >
+      &#8595;&nbsp;&nbsp;T&eacute;l&eacute;charger directement le guide
+    </a>
+
+    <!-- Divider -->
+    <hr class="divider">
+
+    <!-- Upsell Section -->
+    <div class="upsell-section">
+      <h2>Envie d&rsquo;aller plus loin&nbsp;?</h2>
+      <p>
+        D&eacute;couvrez <strong>Sommeil R&eacute;parateur &mdash; Le Guide Complet</strong>,
+        notre programme approfondi pour transformer durablement la qualit&eacute; de votre sommeil&nbsp;:
+        m&eacute;thodes scientifiques, routines du soir, gestion du stress et bien plus encore.
+      </p>
+
+      <div class="price-block">
+        <span class="price-old">27&nbsp;&euro;</span>
+        <span class="price-new">14,90&nbsp;&euro;</span>
+        <span class="price-badge">-45&nbsp;%</span>
+      </div>
+
+      <a href="page-vente.html" class="btn-upsell">
+        D&eacute;couvrir le guide complet &rarr;
+      </a>
+    </div>
+
+    <!-- Footer Link -->
+    <a href="index.html" class="footer-link">
+      &larr; Retour &agrave; l&rsquo;accueil
+    </a>
+
+  </div>
+
+</body>
+</html>
